@@ -11,3 +11,119 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@font-face {
+  font-family: 'tmon';
+  src: url("./assets/fonts/tmon.ttf");
+}
+
+@font-face {
+  font-family: 'baemin';
+  src: url("./assets/fonts/baemin.ttf");
+}
+
+@font-face {
+  font-family: "google1";
+  src: url("./assets/fonts/google1.ttf");
+}
+
+@font-face {
+  font-family: "google2";
+  src: url("./assets/fonts/google2.ttf");
+}
+
+@font-face {
+  font-family: "google3";
+  src: url("./assets/fonts/google3.ttf");
+}
+
+@font-face {
+  font-family: "google4";
+  src: url("./assets/fonts/google4.ttf");
+}
+
+.root {
+  font-family: 'google4';
+  display: flex;
+  flex-direction: column;
+  letter-spacing: -6px;
+  line-height: 0.8;
+}
+
+.center {
+  text-align: center;
+}
+
+.upperBar {
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+.content {
+  margin: 50px;
+}
+
+.font1{
+  font-size: 100px;
+  margin-top: 300px;
+}
+
+.font2 {
+  font-size: 200px;
+  line-height: 0.73;
+  margin-top: 700px;
+  text-align: right;
+  position: relative;
+}
+
+.font2-1 {
+  display: flex;
+  flex-direction: row;
+  margin-top: -270px;
+  margin-left: 650px;
+}
+
+.font2-2 {
+  display: flex;
+  flex-direction: row;
+  margin-top: -190px;
+  margin-left: 750px;
+}
+
+.univLogo {
+  position: absolute;
+  width: 500px;
+  opacity: 0.4;
+  margin-top: -50px;
+  right: 1000px;
+}
+
+.font3 {
+  font-size: 100px;
+  line-height: 0.73;
+}
+
+.font3-1 {
+  opacity: 0;
+}
+
+.font4 {
+  font-size: 200px;
+  margin-top: 500px;
+  display: flex;
+  flex-direction: 'row';
+}
+
+.font5 {
+  font-size: 300px;
+  margin-top: 350px;
+}
+
+.font6 {
+  font-family: 'tmon';
+  letter-spacing: 0px;
+}

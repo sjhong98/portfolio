@@ -185,6 +185,9 @@ code {
   line-height: 1;
   display: flex;
   flex-direction: row;
+  margin-top: 1000px; 
+  position: relative;
+  height: 1500px;
 }
 
 .font7-1 {
@@ -196,10 +199,17 @@ code {
   font-size: 100px;
   margin-top: 0px;
   position: relative;
-  width: 100%
 }
 
 .font7-3 {
+  position: relative;
+  font-size: 100px;
+}
+.font7-4 {
+  position: relative;
+  font-size: 100px;
+}
+.font7-5 {
   position: relative;
   font-size: 100px;
 }

@@ -3,6 +3,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import video3 from './assets/videos/video3.mp4';
 import video1 from './assets/videos/video2.mp4';
+import shot1 from './assets/images/shot1.png';
+import shot2 from './assets/images/shot2.png';
+import shot3 from './assets/images/shot3.png';
+import shot4 from './assets/images/shot4.png';
+
 
 export default function Main() {
     const contentRef = useRef();
@@ -19,7 +24,7 @@ export default function Main() {
     const v1Ref = useRef();
     const v2Ref = useRef();
     const videoRef =useRef();
-    const font7_2Ref = useRef();
+    const font7Ref = useRef();
     const font8Ref = useRef();
 
 
@@ -204,38 +209,43 @@ export default function Main() {
 
     useEffect(() => {       // font7-2 pin
         gsap.registerPlugin(ScrollTrigger);
-        const font7_2 = font7_2Ref.current;
 
-        gsap.to(font7_2Ref.current, {
-            x: -font7_2.offsetWidth,
+        gsap.to(font7Ref.current, {
             scrollTrigger: {
-                markers: false,
+                markers: true,
                 trigger: '.font7',
-                start: 'top 30%', 
-                end: 'bottom 30%',  // .font4를 통과하는 동안 고정됨
-                scrup: 3,
+                start: 'top 25%', 
+                end: 'bottom 25%',  // .font4를 통과하는 동안 고정됨
+                scrub: 3,
                 pin: true,
+                pinSpacing: false, 
+          }
+        });
+      }, []);
+
+    useEffect(() => {       // font7-2 pin
+        gsap.registerPlugin(ScrollTrigger);
+        const font7_2 = font7Ref.current;
+
+        gsap.to(font7Ref.current, {
+            x: -font7_2.offsetWidth * 3.4,
+            scrollTrigger: {
+                markers: true,
+                trigger: '.font7',
+                start: 'top 25%', 
+                end: 'bottom 25%',  // .font4를 통과하는 동안 고정됨
+                scrub: 3,
                 pinSpacing: false, 
                 onUpdate: ({ progress }) => {
                     gsap.set(font7_2, { 
-                        x: -font7_2.offsetWidth * progress 
+                        x: -font7_2.offsetWidth * 3.4 * progress 
                     });
                   }
           }
         });
       }, []);
 
-      const margin = (window.innerWidth);
-
-    
-    
-    
-    
-    
-    
-    
-
-
+      const screenWidth = (window.innerWidth);
 
 
     
@@ -285,7 +295,7 @@ export default function Main() {
                         </div>
                     </div>
 
-                    <div className='tr1' style={{height:`${margin}px`}}></div>
+                    <div className='tr1' style={{height:`100px`}}></div>
 
                     
 
@@ -310,12 +320,14 @@ export default function Main() {
                         
                     </div>
 
-                    <div className='font7' ref={font7_2Ref} style={{marginTop:'1000px', position:'relative'}}>
-                        <p className='font7-2'><span style={{color:'#189CDE'}}>역사</span>와 <span style={{color:'#189CDE'}}>콘텐츠</span> 공부를 했습니다.<br /><br />역사와 같은 <span style={{color:'#189CDE'}}>스토리</span>들로<br />더 좋은 콘텐츠를 만들고 싶었고,<br />다양한 시도들을 해보았습니다.</p>
-                        <p className='font7-3' style={{left:"1000px"}}>ABC</p>
+                    <div className='font7' ref={font7Ref}>
+                        {/* 어떻게 사진 크기를 반응형에 맞게 설정할 것인가 */}
+                        <img className='font7-2' src={shot1} style={{ width: '1000px', height: '500px' }}></img>    
+                        <img className='font7-3' src={shot2} style={{width: '1000px', left:`1500px`, height: '500px'}}></img>
+                        <img className='font7-4' src={shot3} style={{width: '1000px', left:`2500px`, height: '500px'}}></img>
+                        <img className='font7-5' src={shot4} style={{width: '1000px', left:`3500px`, height: '500px'}}></img>
                     </div>
-
-                    <p className='font8' ref={font8Ref}>ABC</p>
+                    <div className='font7-6' style={{height: '500px'}}></div>
 
                     
 

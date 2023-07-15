@@ -146,30 +146,57 @@ export default function Main() {
         });
       }, []);
 
-    useEffect(() => {       // font1 move
+    useEffect(() => {       // font1 firset move
+        setTimeout(() => {
         gsap.from('.font1-1', {
             y: 150,
             opacity: 0,
             duration: 0.7,
             stagger: 0.1,   // font1-1 이라는 className을 가진 component들끼리의 간격. 부모-자식 관계에는 성립 X
-        })
+            })
+        }, 0);
     }, []);
 
-    useEffect(() => {       // video move
+    useEffect(() => {       // font1 scroll move
         gsap.registerPlugin(ScrollTrigger);
       
         ScrollTrigger.create({
         markers: false,
-        trigger: '.font1',
-        start: 'top bottom',  // when the "X" of the startTrigger hits "Y" of the scroller
-        end: 'bottom top',     // when the "X" of the endTrigger hits "Y" of the scroller
+        trigger: '.section0',
+        start: 'top top',  // scroll start/end가 어디 있느냐에 따라 '시작점의 진행상황'이 달라짐
+        end: 'bottom top',  // ex) 20%에서 시작하면 20%는 진행된 상태로 시작 -> 매우 애매
         scrub: 3,
         onUpdate: (self) => {
-            gsap.to(videoRef.current, {
-                y: (self.progress * -300),
+            gsap.to(font1Ref.current, {
+                scale: self.progress * 30, 
+                transformOrigin: 'left 15%',
                 overwrite: true,
+                pin: true,
+                color: `rgb(${187 + (self.progress * (255 - 187))}, ${187 + (self.progress * (255 - 187))}, ${187 + (self.progress * (255 - 187))})`, // why?
             });
             },
+        });
+    
+        ScrollTrigger.update();
+    }, []); 
+
+    useEffect(() => {       // video move
+        gsap.registerPlugin(ScrollTrigger);
+      
+        gsap.to(videoRef.current, {
+            scrollTrigger: {
+                markers: false,
+                trigger: '.section0',
+                start: 'top top', 
+                end: 'bottom top',  // .font4를 통과하는 동안 고정됨
+                onUpdate: (self) => {
+                    gsap.to(videoRef.current, {
+                        opacity: 1-self.progress,
+                    })
+                },
+                pin: true,
+                pinSpacing: false, 
+          }
         });
     
         ScrollTrigger.update();
@@ -179,7 +206,7 @@ export default function Main() {
         gsap.registerPlugin(ScrollTrigger);
       
         ScrollTrigger.create({
-        markers: true,
+        markers: false,
         trigger: '.font3-3',
         start: 'top bottom',  // when the "X" of the startTrigger hits "Y" of the scroller
         end: 'bottom top',     // when the "X" of the endTrigger hits "Y" of the scroller
@@ -315,14 +342,20 @@ export default function Main() {
 
                 <div className='contentBackground' ref={contentRef}>
 
-                    <video className='video1' ref={videoRef} src={video1} autoplay='autoplay' loop muted='muted' style={{width:'100%'}}></video>
+                    <div className='section0'>
 
-                    <div className='font1' ref={font1Ref}>
-                        <p className='font1-1'>FRONT-END</p>
-                        <p className='font1-1'>DEVELOPER</p>
-                        <p className='font1-1'>BASED IN SEOUL,</p>
-                        <p className='font1-1'>SOUTH KOREA</p>
+                        <video className='video1' ref={videoRef} src={video1} autoplay='autoplay' loop muted='muted' style={{width:`${screenWidth}px`}}></video>
+
+                        <div className='font1' ref={font1Ref}>
+                            <p className='font1-1'>FRONT-END</p>
+                            <p className='font1-1'>DEVELOPER</p>
+                            <p className='font1-1'>BASED IN SEOUL,</p>
+                            <p className='font1-1'>SOUTH KOREA</p>
+                        </div>
+
                     </div>
+
+                    <div style={{height: '1500px'}}></div>
 
                     <div className='section1'>
                         {/* <img className='univLogo' src={univLogo} ref={univLogoRef} /> */}

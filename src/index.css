@@ -66,13 +66,16 @@ code {
   z-index: 3;
 }
 
+.section0 {
+  margin: -50px;
+  height: 1500px;
+}
+
 .video1 {
   position: absolute;
   z-index: 1;
-  margin: -50px;
-  margin-top: 50px;
   border-bottom: solid;
-  border-bottom-width: 200px;
+  border-bottom-width: 1000px;
 }
 
 .contentBackground {
@@ -81,16 +84,19 @@ code {
 
 .font1{
   font-size: 100px;
-  margin-top: 400px;
   position: relative;
   z-index: 2;
   color: #dddddd;
-  margin-bottom: 1000px;
+  bottom: -500px;
+  margin-left: 50px;
+  opacity: 1;
+  height: 1000px;
 }
 
 .font1-1 {
   margin-top: -100px;
 }
+
 
 .font2 {
   font-size: 200px;

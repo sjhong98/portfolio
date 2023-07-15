@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import video3 from './assets/videos/video3.mp4';
@@ -11,22 +10,14 @@ import shot1 from './assets/images/shot1.png';
 import shot2 from './assets/images/shot2.png';
 import shot3 from './assets/images/shot3.png';
 import shot4 from './assets/images/shot4.png';
-import PC from './pc.js';
-import Mobile from './mobile.js';
 
-export default function Main() {
-
-    const isPc = useMediaQuery({
-        query: "(min-width: 1024px)"
-    });
-    const isMobile = useMediaQuery({
-        query: "(max-width: 767px)"
-    });
+export default function Mobile() {
 
     return (
         <div>
-            {isPc && <PC />}
-            {isMobile && <Mobile />}
+            <p>
+                Mobile
+            </p>
         </div>
     )
 }

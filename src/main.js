@@ -3,6 +3,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import video3 from './assets/videos/video3.mp4';
 import video1 from './assets/videos/video2.mp4';
+import video4 from './assets/videos/video1.mp4';
+import video5 from './assets/videos/video5.mp4';
+import video6 from './assets/videos/video6.mp4';
 import shot1 from './assets/images/shot1.png';
 import shot2 from './assets/images/shot2.png';
 import shot3 from './assets/images/shot3.png';
@@ -26,6 +29,10 @@ export default function Main() {
     const videoRef =useRef();
     const font7Ref = useRef();
     const font8Ref = useRef();
+    const endRef = useRef();
+    const endVidRef = useRef();
+    const video5Ref = useRef();
+    const video6Ref = useRef();
 
 
     useEffect(() => {       // "c1 move"
@@ -172,7 +179,7 @@ export default function Main() {
         gsap.registerPlugin(ScrollTrigger);
       
         ScrollTrigger.create({
-        markers: false,
+        markers: true,
         trigger: '.font3-3',
         start: 'top bottom',  // when the "X" of the startTrigger hits "Y" of the scroller
         end: 'bottom top',     // when the "X" of the endTrigger hits "Y" of the scroller
@@ -205,14 +212,14 @@ export default function Main() {
         });
     
         ScrollTrigger.update();
-    }, []);  
+    }, []);   
 
     useEffect(() => {       // font7-2 pin
         gsap.registerPlugin(ScrollTrigger);
 
         gsap.to(font7Ref.current, {
             scrollTrigger: {
-                markers: true,
+                markers: false,
                 trigger: '.font7',
                 start: 'top 25%', 
                 end: 'bottom 25%',  // .font4를 통과하는 동안 고정됨
@@ -230,7 +237,7 @@ export default function Main() {
         gsap.to(font7Ref.current, {
             x: -font7_2.offsetWidth * 3.4,
             scrollTrigger: {
-                markers: true,
+                markers: false,
                 trigger: '.font7',
                 start: 'top 25%', 
                 end: 'bottom 25%',  // .font4를 통과하는 동안 고정됨
@@ -245,7 +252,49 @@ export default function Main() {
         });
       }, []);
 
+    useEffect(() => {       // end move
+        gsap.registerPlugin(ScrollTrigger);
+      
+        ScrollTrigger.create({
+        markers: false,
+        trigger: '.end',
+        start: 'top bottom',  // when the "X" of the startTrigger hits "Y" of the scroller
+        end: 'bottom top',     // when the "X" of the endTrigger hits "Y" of the scroller
+        scrub: 3,
+        onUpdate: (self) => {
+            gsap.to(endRef.current, {
+                y: (self.progress * -1000),
+                overwrite: true,
+            });
+            },
+        });
+    
+        ScrollTrigger.update();
+    }, []);  
+
+    useEffect(() => {       // end video move
+        gsap.registerPlugin(ScrollTrigger);
+      
+        ScrollTrigger.create({
+        markers: false,
+        trigger: '.end',
+        start: 'top bottom',  // when the "X" of the startTrigger hits "Y" of the scroller
+        end: 'bottom top',     // when the "X" of the endTrigger hits "Y" of the scroller
+        scrub: 3,
+        onUpdate: (self) => {
+            gsap.to(endVidRef.current, {
+                y: (self.progress * -500),
+                overwrite: true,
+            });
+            },
+        });
+    
+        ScrollTrigger.update();
+    }, []);  
+
       const screenWidth = (window.innerWidth);
+      const videoWidth = window.innerWidth / 3;
+      console.log("width ::: ", screenWidth, videoWidth);
 
 
     
@@ -329,12 +378,16 @@ export default function Main() {
                     </div>
                     <div className='font7-6' style={{height: '500px'}}></div>
 
-                    
+                    <div style={{height: '1000px'}}></div>
 
-                    <div style={{height:'10000px'}}>
 
+                    <div className='end' ref={endRef}>
+                        <p className='end-1'>Thanks For Reading!</p>
+                        <video className='endVid' ref={endVidRef} src={video4} autoplay='autoplay' muted loop />
+                        
                     </div>
-                    .
+
+                
 
                 
 

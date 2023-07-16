@@ -10,14 +10,17 @@ import shot1 from './assets/images/shot1.png';
 import shot2 from './assets/images/shot2.png';
 import shot3 from './assets/images/shot3.png';
 import shot4 from './assets/images/shot4.png';
+import './mobile.css';
 
 export default function Mobile() {
 
+    const screenHeight = window.innerHeight;
+
     return (
-        <div>
-            <p>
-                Mobile
-            </p>
+        <div className='root_m'>
+            <video className='video1_m' src={video1} autoplay='autoplay' loop muted='muted'></video>
+            <div style={{height:'100px'}}></div>
+            <p>hello</p>
         </div>
     )
 }

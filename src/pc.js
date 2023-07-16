@@ -10,6 +10,7 @@ import shot1 from './assets/images/shot1.png';
 import shot2 from './assets/images/shot2.png';
 import shot3 from './assets/images/shot3.png';
 import shot4 from './assets/images/shot4.png';
+import './pc.css';
 
 
 export default function PC() {
@@ -112,7 +113,7 @@ export default function PC() {
         ScrollTrigger.update();
     }, []);  
 
-    useEffect(() => {       // univLogo move
+    useEffect(() => {       // background video move
         gsap.registerPlugin(ScrollTrigger);
       
         ScrollTrigger.create({
@@ -146,7 +147,7 @@ export default function PC() {
         });
       }, []);
 
-    useEffect(() => {       // font1 firset move
+    useEffect(() => {       // font1 first move
         setTimeout(() => {
         gsap.from('.font1-1', {
             y: 150,
@@ -188,7 +189,7 @@ export default function PC() {
                 markers: false,
                 trigger: '.section0',
                 start: 'top top', 
-                end: 'bottom top',  // .font4를 통과하는 동안 고정됨
+                end: 'bottom top', 
                 onUpdate: (self) => {
                     gsap.to(videoRef.current, {
                         opacity: 1-self.progress,
@@ -249,7 +250,7 @@ export default function PC() {
                 markers: false,
                 trigger: '.font7',
                 start: 'top 25%', 
-                end: 'bottom 25%',  // .font4를 통과하는 동안 고정됨
+                end: 'bottom 25%',  
                 scrub: 3,
                 pin: true,
                 pinSpacing: false, 
@@ -267,7 +268,7 @@ export default function PC() {
                 markers: false,
                 trigger: '.font7',
                 start: 'top 25%', 
-                end: 'bottom 25%',  // .font4를 통과하는 동안 고정됨
+                end: 'bottom 25%',  
                 scrub: 3,
                 pinSpacing: false, 
                 onUpdate: ({ progress }) => {

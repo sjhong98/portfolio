@@ -17,7 +17,7 @@ import Mobile from './mobile.js';
 export default function Main() {
 
     const isPc = useMediaQuery({
-        query: "(min-width: 1024px)"
+        query: "(min-width: 767px)"
     });
     const isMobile = useMediaQuery({
         query: "(max-width: 767px)"

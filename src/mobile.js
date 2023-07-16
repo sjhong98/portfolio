@@ -10,6 +10,7 @@ import shot1 from './assets/images/shot1.png';
 import shot2 from './assets/images/shot2.png';
 import shot3 from './assets/images/shot3.png';
 import shot4 from './assets/images/shot4.png';
+import video1_shot from './assets/images/video1.png';
 import './mobile.css';
 
 export default function Mobile() {
@@ -18,9 +19,16 @@ export default function Mobile() {
 
     return (
         <div className='root_m'>
-            <video className='video1_m' src={video1} autoplay='autoplay' loop muted='muted'></video>
-            <div style={{height:'100px'}}></div>
-            <p>hello</p>
+            <img className='video1_m' src={video1_shot} />
+            <div className='font1_m'>
+                <p className='font1-2_m'>FRONT-END</p>
+                <p className='font1-2_m'>DEVELOPER</p>
+                <p className='font1-2_m'>BASED IN SEOUL,</p>
+                <p className='font1-2_m'>SOUTH KOREA</p>
+            </div>
+
+
+            <div></div>
         </div>
     )
 }

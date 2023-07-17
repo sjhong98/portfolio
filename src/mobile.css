@@ -3,6 +3,20 @@
   .root_m {
     font-family: 'google4';
     margin: 0px;
+    letter-spacing: -4px;
+  }
+
+  .upperBar_m {
+    background-color: transparent;
+    position: fixed;
+    z-index: 3;
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .section1 {
+    height: 300vh;
   }
 
   .video1_m {
@@ -23,3 +37,64 @@
   .font1-2_m {
     margin: 0px;
   }
+
+  .section2_m {
+    width: 80vw;
+    margin: 10vw;
+  }
+
+  .video2_m {
+    width: 40vw;
+    position: absolute;
+    margin-top: 100px;
+  }
+
+  .font2_m {
+    position: relative;
+    text-align: right;
+    font-size: 15vw;
+
+  }
+
+  .font2-2_m {
+    display: flex;
+    flex-direction: row;
+    font-size: 8vw;
+    margin-top: -8vh;
+    white-space: nowrap;
+  }
+
+  .font2-4_m {
+    opacity: 0;
+  }
+
+  .section3_m {
+    font-family: 'tmon';
+    letter-spacing: 1px;
+    font-size: 5vh;
+    white-space: nowrap;
+  }
+
+  .font3-1_m {
+    position: relative;
+    right: 80vw;
+  }
+
+  .font3-2_m {
+    position: relative;
+    right: -80vw;
+  }
+
+  .section4_m {
+    font-size: 20vw;
+  }
+
+  .font4_m {
+    height: 400px;
+  }
+
+  .font5-1_m {
+    animation: moveLeft 9s linear infinite;
+    white-space: nowrap;
+  }
+  

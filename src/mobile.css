@@ -90,11 +90,85 @@
   }
 
   .font4_m {
-    height: 400px;
+    margin-bottom: 0px;
   }
 
-  .font5-1_m {
-    animation: moveLeft 9s linear infinite;
+  .font4-1_m {
+    margin-bottom: 0px;
+  }
+
+  .font4-3_m {
+    animation: moveLeft 13s linear infinite;
     white-space: nowrap;
+    color: #aaaaaa;
+    font-family: 'tmon';
+    font-size: 15vw;
+    position: absolute;
+    margin-top: 50px;
+  }
+
+  .font4-4_m {
+    position: relative;
+    font-size: 25vw;
+    margin-top: 0px;
+    margin-left: 20px;
   }
   
+  .section5_m {
+    font-family: 'google1';
+    letter-spacing: -8px;
+    line-height: 1;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1000px; 
+    position: relative;
+    height: 1500px;
+  }
+  
+  .section5-1_m {
+    font-size: 130px;
+    text-align: center;
+  }
+  
+  .section5-2_m {
+    font-size: 100px;
+    position: relative;
+  }
+  
+  .section5-3_m {
+    position: relative;
+    font-size: 100px;
+  }
+  .section5-4_m {
+    position: relative;
+    font-size: 100px;
+  }
+  .section5-5_m {
+    position: relative;
+    font-size: 100px;
+  }
+
+
+  .section6_m {
+    font-size: 100px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .font6-1_m {
+    position: absolute;
+    margin-top: 500px;
+    z-index: 3;
+    color: #dddddd;
+    font-size: 15vw;
+    margin-top: 30vh;
+  }
+  
+  .endVid_m {
+    position: relative;
+    margin: -50px;
+    border: solid;
+    border-top-width: 150px;
+    border-bottom-width: 150px;
+    width: 100vw;
+  }

@@ -12,6 +12,7 @@ import shot3 from './assets/images/shot3.png';
 import shot4 from './assets/images/shot4.png';
 import video1_shot from './assets/images/video1.png';
 import video2_shot from './assets/images/video2.png';
+import video3_shot from './assets/images/video3.png';
 import './mobile.css';
 
 export default function Mobile() {
@@ -27,6 +28,9 @@ export default function Mobile() {
     const v2Ref = useRef();
     const mbtiRef = useRef();
     const estpRef = useRef();
+    const font7Ref = useRef();
+    const endVidRef = useRef();
+    const endRef = useRef();
 
     useEffect(() => {       // font1 first move
         setTimeout(() => {
@@ -221,6 +225,85 @@ export default function Mobile() {
         ScrollTrigger.update();
     }, []); 
 
+    useEffect(() => {       // font7-2 pin
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(font7Ref.current, {
+            scrollTrigger: {
+                markers: false,
+                trigger: '.section5_m',
+                start: 'top 25%', 
+                end: 'bottom 25%',  
+                scrub: 3,
+                pin: true,
+                pinSpacing: false, 
+          }
+        });
+      }, []);
+
+    useEffect(() => {       // font7-2 pin
+        gsap.registerPlugin(ScrollTrigger);
+        const font7_2 = font7Ref.current;
+
+        gsap.to(font7Ref.current, {
+            x: -font7_2.offsetWidth * 3.4,
+            scrollTrigger: {
+                markers: false,
+                trigger: '.section5_m',
+                start: 'top 25%', 
+                end: 'bottom 25%',  
+                scrub: 3,
+                pinSpacing: false, 
+                onUpdate: ({ progress }) => {
+                    gsap.set(font7_2, { 
+                        x: -font7_2.offsetWidth * 3 * progress 
+                    });
+                  }
+          }
+        });
+      }, []);
+
+
+    useEffect(() => {       // end move
+        gsap.registerPlugin(ScrollTrigger);
+      
+        ScrollTrigger.create({
+        markers: false,
+        trigger: '.section6_m',
+        start: 'top bottom',  // when the "X" of the startTrigger hits "Y" of the scroller
+        end: 'bottom top',     // when the "X" of the endTrigger hits "Y" of the scroller
+        scrub: 3,
+        onUpdate: (self) => {
+            gsap.to(endRef.current, {
+                y: (self.progress * -1000),
+                overwrite: true,
+            });
+            },
+        });
+    
+        ScrollTrigger.update();
+    }, []);  
+
+    useEffect(() => {       // end video move
+        gsap.registerPlugin(ScrollTrigger);
+      
+        ScrollTrigger.create({
+        markers: false,
+        trigger: '.section6_m',
+        start: 'top bottom',  // when the "X" of the startTrigger hits "Y" of the scroller
+        end: 'bottom top',     // when the "X" of the endTrigger hits "Y" of the scroller
+        scrub: 3,
+        onUpdate: (self) => {
+            gsap.to(endVidRef.current, {
+                y: (self.progress * -500),
+                overwrite: true,
+            });
+            },
+        });
+    
+        ScrollTrigger.update();
+    }, []); 
+
 
     const screenHeight = window.innerHeight;
 
@@ -280,16 +363,28 @@ export default function Mobile() {
                             <p className='font4-1_m' ref={mbtiRef}>MBTI</p>
                         </div>
 
-                        <div className='font5_m'>
-                            <p className='font5-1_m'>언제든, 어디로부터든, 어디로든. 편견없이 즐기는. 너 내 동료가 되라</p>
-                            <p className='estp_m font5-2_m' style={{}}>ESTP</p>  
+                        <div className='font4-2_m'>
+                            <p className='font4-3_m'>언제든, 어디로부터든, 어디로든. 편견없이 즐기는. 너 내 동료가 되라</p>
+                            <p className='font4-4_m'>ESTP</p>  
                         </div>
                 </div>
 
-                <div style={{height:'1500px'}}></div>
+                <div className='section5_m' ref={font7Ref}>
+                        {/* 어떻게 사진 크기를 반응형에 맞게 설정할 것인가 */}
+                        <img className='font5-1_m' src={shot1} style={{ height: '30vh' }}></img>    
+                        <img className='font5-2_m' src={shot2} style={{ height: '30vh', marginLeft: '10vh'}}></img>
+                        <img className='font5-3_m' src={shot3} style={{ height: '30vh'}}></img>
+                        <img className='font5-4_m' src={shot4} style={{ height: '30vh'}}></img>
+                    </div>
+                    <div className='font7-6' style={{height: '500px'}}></div>
 
+                <div style={{height: '1000px'}}></div>
 
-            <div></div>
+                <div className='section6_m' ref={endRef}>
+                    <p className='font6-1_m'>Thanks For Reading!</p>
+                    <img className='endVid_m' ref={endVidRef} src={video3_shot} />  
+                </div>
+
         </div>
     )
 }

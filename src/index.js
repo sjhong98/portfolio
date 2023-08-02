@@ -3,10 +3,48 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+
+export const increase = () =>{
+    return {
+        type: 'INCREASE'
+    };
+};
+
+export const decrease = () =>{
+    return {
+        type: 'DECREASE'
+    };
+};
+
+
+
+const count = 1;
+
+const reducer = (state = count, action) => {
+    switch(action.type) {
+        case "INCREASE" :
+            return state + 1;
+        
+        case "DECREASE" :
+            return state - 1;
+        
+        case "SET" :
+            return action.payload;
+        
+        default:
+            return state;
+    }
+}
+
+const store = createStore(reducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <Provider store={store} >
+        <App />
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
